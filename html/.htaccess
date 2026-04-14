@@ -1,0 +1,44 @@
+RewriteEngine On
+RewriteRule ^u:(.*)\.html$ /index.php?page=profile&username=$1	 [QSA,L]
+
+RewriteRule ^front:(.*)\.png$ /index.php?page=front&id=$1	 [QSA,L]
+
+RewriteRule ^cFront:(.*)\.png$ /index.php?page=coreFront&id=$1	 [QSA,L]
+RewriteRule ^cBack:(.*)\.png$ /index.php?page=coreBack&id=$1	 [QSA,L]
+
+RewriteRule ^back:(.*)\.png$ /index.php?page=front&b=true&id=$1	 [QSA,L]
+
+RewriteRule ^trainercard:(.*)\.html$ /index.php?page=trainercard&id=$1	 [QSA,L]
+
+RewriteRule ^rLike:(.*)\.html$ /index.php?page=likes&id=$1&action=rLike	 [QSA,L]
+RewriteRule ^like:(.*)\.html$ /index.php?page=likes&id=$1&action=like	 [QSA,L]
+RewriteRule ^rDislike:(.*)\.html$ /index.php?page=likes&id=$1&action=rDislike	 [QSA,L]
+RewriteRule ^dislike:(.*)\.html$ /index.php?page=likes&id=$1&action=dislike	 [QSA,L]
+RewriteRule ^uLike:(.*)\.html$ /index.php?page=likes&id=$1&action=uLike	 [QSA,L]
+RewriteRule ^uRLike:(.*)\.html$ /index.php?page=likes&id=$1&action=uRLike	 [QSA,L]
+
+
+RewriteRule ^g:(.*):(.*?)\.html$ /index.php?page=glitchMon&form=$1&id=$2 [QSA,L]
+
+
+RewriteRule ^core:(.*)\.html$ /index.php?page=coreMon&form=$1 [QSA,L]
+RewriteRule ^smitty:(.*)\.html$ /index.php?page=smittyMon&form=$1 [QSA,L]
+
+RewriteRule ^smittyForm:(.*)\.html$ /index.php?page=smittyFormMon&form=$1 [QSA,L]
+
+RewriteRule ^d:(.*?)\.html$ /index.php?page=download&id=$1 [QSA,L]
+
+RewriteRule ^(.*)\.html$ /index.php?page=$1 [QSA,L]
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php?page=404 [QSA,L]
+
+php_flag display_errors On
+php_value date.timezone "America/Chicago"
+php_value error_log "/var/log/httpd/error_void.log"
+php_value  auto_prepend_file "/var/www/void.scooom.xyz/Classes/autoloader.php"
+php_value session.save_path "/var/www/void.scooom.xyz/sessions"
+php_value upload_tmp_dir  "/var/www/void.scooom.xyz/uploads"
