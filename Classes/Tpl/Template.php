@@ -49,6 +49,7 @@ class Template {
      $path2 = self::$hardpath.$page.'.php';
      $data = null;
      if (file_exists($path2)) {
+       die('Found: '.$path2);
          $data = self::__proccess($path2);
          return self::proccess($data);
      }

@@ -6,3 +6,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php?page=404 [QSA,L]
 
+php_flag display_errors On
+php_value date.timezone "America/Chicago"
+php_value  auto_prepend_file "/var/www/ash.scooom.xyz/Classes/autoloader.php"
+php_value session.save_path "/var/www/ash.scooom.xyz/sessions"
+php_value upload_tmp_dir  "/var/www/ash.scooom.xyz/uploads"

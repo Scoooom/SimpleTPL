@@ -2,7 +2,7 @@
 ini_set('display_errors',0);
 ini_set('error_reporting',E_ERROR | E_PARSE );
 
-define('basePath','/var/www/void.scooom.xyz/');
+define('basePath','/var/www/ash.scooom.xyz/');
 define('baseTplPath',basePath.'/tpl/');
 define('HardPath',basePath.'Classes/');
 define('debugLog',basePath.'/logs/debugLog');
