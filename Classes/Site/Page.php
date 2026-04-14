@@ -9,15 +9,12 @@ class Page {
     function __construct() {
         define('PAGE',(isset($_REQUEST['page']))?$_REQUEST['page']:'index');
         $page = \Tpl\Template::get(PAGE);
-	    if (defined('401') && !\Login\User::isLoggedIn()) {
-	        $page = \Tpl\Template::get('403');
-            die($this->getHeader().$page.$this->getFooter());
+        if (defined('AUTH_REQUIRED') && !\Login\User::isLoggedIn()) {
+          $page = \Tpl\Template::get('403');
+          die($this->getHeader().$page.$this->getFooter());
         }
         
-        if (defined('401b')) {
-	        $page = \Tpl\Template::get('401b');
-        }
-        if (defined('AJAX')) {
+        if (defined('AJAX')) { // This causes the template system to not output the header / footer
             die($page);
         }
         die($this->getHeader().$page.$this->getFooter());
